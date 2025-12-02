@@ -1,0 +1,339 @@
+/* GLOBAL RESET & FONTS */
+:root {
+  --primary: #4a90e2;    /* Main Blue */
+  --secondary: #28a745;  /* Success Green */
+  --danger: #dc3545;     /* Delete Red */
+  --dark: #333;
+  --light: #f4f4f4;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- VENDOR DASHBOARD STYLING --- */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: var(--dark);
+}
+
+/* STATS CARDS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-left: 5px solid var(--primary);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-card.highlight {
+  border-left-color: var(--secondary);
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 10px;
+  color: var(--dark);
+}
+
+/* TABS (My Products vs Add New) */
+.dashboard-controls {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #777;
+  position: relative;
+  top: 2px;
+}
+
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+}
+
+/* PRODUCTS GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.product-card-mini {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.product-card-mini img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.p-info {
+  padding: 15px;
+}
+
+.p-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--white);
+  color: var(--danger);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.delete-btn:hover {
+  background: var(--danger);
+  color: var(--white);
+}
+
+/* ADD PRODUCT FORM */
+.add-product-form {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-product-form input,
+.add-product-form textarea,
+.add-product-form select {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.add-product-form input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.submit-btn {
+  background: var(--secondary);
+  color: var(--white);
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #218838;
+} 
+/* --- PRODUCT DETAIL PAGE --- */
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.detail-image-container img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.detail-info h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.category-tag {
+  background: #eee;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.price-tag {
+  font-size: 1.8rem;
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.cart-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.cart-actions select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.add-to-cart-btn {
+  background: #333;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background: black;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* --- ORDER HISTORY TABLE --- */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.custom-table th, 
+.custom-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.custom-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.badge.success { background-color: #28a745; }
+.badge.danger { background-color: #dc3545; }
+.badge.warning { background-color: #ffc107; color: black; }
+
+.sm-btn {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
